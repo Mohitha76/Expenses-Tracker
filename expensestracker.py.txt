@@ -1,0 +1,42 @@
+print("       'WELCOME'             ")
+print("-----EXPENSES TRACKER-----")
+date=''
+category=''
+amount=0
+date_list=[]
+category_list=[]
+amount_list=[]
+lists = ['Add Expenses','View All your Expenses','View Total Spent','Exit']
+for i in range(1,len(lists)+1):
+    print(i,'.',lists[i-1])
+boool = True
+while(boool!=False):
+    choice = int(input('Enter your Choice:'))    
+    if(choice>=5 or choice<=0):
+        print('         INVALID         \n -----PLEASE ENTER CORRECT CHOICE-----')
+    else:
+        if (choice==1):
+            print("----ADD EXPENSES----")
+            date=input('Enter your DATE (DD-MM-YYYY):')
+            category=input('Enter Category of your Expenses:')
+            amount+=int(input('Enter Amount you Spent:'))
+            print("----EXPENSES ADDED SUCCESSFULLY----")
+            date_list.append(date)
+            category_list.append(category)
+            amount_list.append(amount)
+        elif (choice==2):
+            if (date==''):
+                print("No Expenses Added!  ")
+            else:
+                print('----YOUR LAST EXPENSES WITH TOTAL AMOUNT----')
+                for i in range(1,len(date_list)+1):
+                    print('your--',i,'--expenses')
+                    print('DATE:',date_list[i-1],'\nCATEGORY:',category_list[i-1],'\nAMOUNT:',amount_list[i-1])
+        elif (choice==3):
+            print('----TOTAL AMOUNT SPENT----')
+            print('Total Amount Spent:',amount)
+        else:
+            print('!!!!-------EXIT-------!!!!')
+            boool=False
+                
+            
